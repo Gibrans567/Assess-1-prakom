@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        #info {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Profil Saya</h1>
+    <img src="C:\Users\Legion 5\Downloads\WhatsApp Image 2024-03-24 at 19.08.21_6b3ced03.jpg" alt="Your Photo">
+    <div id="info"></div>
+
+    <div id="form">
+        <label for="jumlah">Jumlah:</label>
+        <input type="text" id="jumlah" name="jumlah"><br><br>
+
+        <label for="pilihan">Pilihan:</label>
+        <select id="pilihan" name="pilihan">
+            <option value="sherlock">Sherlock</option>
+            <option value="lupin">Lupin</option>
+            <option value="aladin">Aladin</option>
+        </select><br><br>
+
+        <button onclick="tampilkanData()">Tampilkan Data</button>
+    </div>
+
+    <script>
+        function tampilkanData() {
+            var jumlah = parseInt(document.getElementById("jumlah").value);
+            var pilihan = document.getElementById("pilihan").value;
+
+            if (isNaN(jumlah) || jumlah <= 0) {
+                alert("Jumlah harus berupa angka positif!");
+            } else {
+                var bukuDitemukan = false;
+                for (var i = 0; i < buku.length; i++) {
+                    if (buku[i].nama === pilihan) {
+                        if (jumlah <= buku[i].jumlah) {
+                            alert("Silahkan ambil buku Anda!");
+                        } else {
+                            alert("Jumlah buku tidak tersedia!");
+                        }
+                        bukuDitemukan = true;
+                        break;
+                    }
+                }
+                if (!bukuDitemukan) {
+                    alert("Buku tidak ditemukan!");
+                }
+            }
+        }
+    </script>
+
+    <script>
+
+        var nama = "Muhammad Khalil Gibran";
+        var nim = "6701223104";
+        var kelas = "D3SI-46-04";
+
+        var infoDiv = document.createElement("div");
+
+        infoDiv.innerHTML = "<p>Nama: " + nama + "</p>";
+        infoDiv.innerHTML += "<p>NIM: " + nim + "</p>";
+        infoDiv.innerHTML += "<p>Kelas: " + kelas + "</p>";
+
+        document.body.appendChild(infoDiv);
+    </script>
+
+    <script>
+        let buku = [
+            {"nama": "sherlock", "jumlah":2},
+            {"nama": "lupin", "jumlah":2},
+            {"nama": "aladin", "jumlah":2},
+        ];
+        
+        console.log(buku);
+    </script>
+</body>
+</html>
